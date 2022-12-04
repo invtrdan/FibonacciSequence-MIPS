@@ -30,11 +30,11 @@ isLegal:
   li $10, 1                                                    # Load 1 into register 10 (count)
   li $11, 0                                                    # Load 0 into register 11 (num1)
   li $12, 1                                                    # Load 1 into register 12 (num2)
-  li $v0, 1                                                    # Service 1 is print integer
   loopFib:                                                     # Generate Fibonacci sequence
-    bgt $10, $8, isExit                                        # Exit if the value in $10 is greater than the value in $8
+    bgt $10, $8, exit                                          # Exit if the value in $10 is greater than the value in $8
     syscall
     addi $10, $10, 1                                           # Add 1 to the value in $10 (count)
+    li $v0, 1                                                  # Service 1 is print integer
     move $a0, $11                                              # Print num1
     b loopFib
     
@@ -47,6 +47,6 @@ isIllegal:
   
   b main
 
-isExit:                                                        # Exit the program
+exit:                                                          # Exit the program
   li $v0, 10                                                   
   syscall                                                      

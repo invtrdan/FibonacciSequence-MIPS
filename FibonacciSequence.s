@@ -4,7 +4,7 @@
 promptN: .asciiz "\nEnter an integer N, where N >= 25: "       # N Prompt
 promptFib: .asciiz "\nFibonacci Sequence"                      # Fibonacci Sequence Prompt
 is_legal .asciiz "\nThe number is legal"                       #Variable that signifies that the number is legal
-is_illegal .asciiz "\nThe number is illegal"                   #Variable that signifies that the number is illegal
+is_illegal .asciiz "\nIllegal Number!"                         #Variable that signifies that the number is illegal
 
 .text                                                          # Define the program instructions
 main:                                                          # Starting point 
@@ -18,6 +18,9 @@ main:                                                          # Starting point
 isLegal:
 
 isIllegal:
+  li $v0, 4                                                    #Print("Illegal Number!")
+  la $a0, is_illegal                                           #log the address of is_illegal
+  syscall
 
 isExit:                                                        # Exit the program
   li $v0, 10                                                   

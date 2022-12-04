@@ -29,9 +29,12 @@ isLegal:
   
   li $10, 1                                                    # Load 1 into register 10 (count)
   li $11, 0                                                    # Load 0 into register 11
-  li $12, 1                                                    #Load 1 into register 12
-  loopFib:                                                     #Generate Fibonacci sequence
-    bgt $10, $8, isExit                                        #Exit if the value in $10 is greater than the value in $8
+  li $12, 1                                                    # Load 1 into register 12
+  loopFib:                                                     # Generate Fibonacci sequence
+    bgt $10, $8, isExit                                        # Exit if the value in $10 is greater than the value in $8
+    li $v0, 1                                                  # Service 1 is print integer
+    move $a0, $8                                               # Move the value from register 11 to register $a0
+    syscall
     
     
   

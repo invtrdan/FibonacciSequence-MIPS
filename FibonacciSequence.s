@@ -32,10 +32,8 @@ isLegal:
   li $12, 1                                                    # Load 1 into register 12 (num2)
   loopFib:                                                     # Generate Fibonacci sequence
     bgt $10, $8, exit                                          # Exit if the value in $10 is greater than the value in $8
-    syscall
-    addi $10, $10, 1                                           # Add 1 to the value in $10 (count)
-    li $v0, 1                                                  # Service 1 is print integer
-    move $a0, $11                                              # Print num1
+    
+                                             
     b loopFib
     
     

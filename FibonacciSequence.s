@@ -33,11 +33,11 @@ isLegal:
   li $13, 0                                                    # Load 0 into register 13 (temp)
   
   ####################################################################################################################################################
-  #    $8 contains the user input (amount of fib sequence numbers to be printed)                                                                     
-  #    $10 contains the counter, initial value: 0                                                                                                    
-  #    $11 contains num1 (the number to be printed in each iteration), initial value: 0                                                              
-  #    $12 contains num2 (the sum of the two previous numbers in the sequence), initial value: 1                                                     
-  #    $13 temporarily contains the sum of num1 and num2 (temp)                                                                                      
+  #    $8   contains the user input (N)                                                                   
+  #    $10  contains the counter (initial value: 0)                                                                                                    
+  #    $11  contains num1 (the number printed on each iteration) (initial value: 0)                                                              
+  #    $12  contains num2 (the sum of the two previous numbers in the sequence) (initial value: 1)                                                  
+  #    $13  contains temp (the sum of num1 and num2)                                                                                   
   #                                                                                                                                                  
   #    Example:                                                                                                                                      
   #    N (user input) = 6                                                                                                                            
@@ -92,6 +92,12 @@ isLegal:
   #    Exit if count == 6
   #    EXIT!
   ####################################################################################################################################################
+  
+  #    $8    N                                                                  
+  #    $10   count                                                                                                   
+  #    $11   num1                                                             
+  #    $12   num2                                                     
+  #    $13   temp 
   
   loopFib:                                                     # Generate Fibonacci sequence
     beq $10, $8, exit                                          # Exit if the value in $10 is equal to the value in $8

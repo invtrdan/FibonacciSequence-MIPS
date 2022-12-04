@@ -13,7 +13,7 @@ main:                                                          # Starting point
   syscall                                                      # Control is transferred from the user space to the kernel where the system call is handled
   li $v0, 5                                                    # Read the input integer, stores it at $v0
   syscall                                                      # Request system service
-  move $8, $v0                                                 # Save the integer in $s0 (a temporary register)
+  move $8, $v0                                                 # Save the integer in $8 (a temporary register)
   li $9, 25                                                    # Initial value to be used for processing
   blt $8, 25, isIllegal                                        # If the number that the user enters is less than 25, branch to isIllegal
   bgt $8, 25, isLegal                                          # If the number that the user enters is greater than or equal to 25, branch to isLegal
@@ -27,9 +27,12 @@ isLegal:
   la $a0, promptFib                                            # log the address of is_legal
   syscall
   
-  li $10, 0                                                    # Load 0 into register 10
-  li $11, 1                                                    # Load 1 into register 11
+  li $10, 1                                                    # Load 1 into register 10 (count)
+  li $11, 0                                                    # Load 0 into register 11
+  li $12, 1                                                    #Load 1 into register 12
   loopFib:                                                     #Generate Fibonacci sequence
+    bgt $10, $8, isExit                                        #Exit if the value in $10 is greater than the value in $8
+    
     
   
   b isExit

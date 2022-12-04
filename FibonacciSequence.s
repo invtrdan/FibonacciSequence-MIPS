@@ -2,7 +2,7 @@
 
 .data                                                          # Define the program data
 promptN: .asciiz "\nEnter an integer N, where N >= 25: "       # N Prompt
-promptFib: .asciiz "\nFibonacci Sequence"                      # Fibonacci Sequence Prompt
+promptFib: .asciiz "\n\nFibonacci Sequence\n"                    # Fibonacci Sequence Prompt
 is_legal: .asciiz "The number is legal"                        # Variable that signifies that the number is legal
 is_illegal: .asciiz "Illegal Number!"                          # Variable that signifies that the number is illegal
 
@@ -22,6 +22,13 @@ isLegal:
   li $v0, 4                                                    # Print("The number is legal")
   la $a0, is_legal                                             # log the address of is_legal
   syscall
+  
+  li $v0, 4                                                    # Print("\nFibonacci Sequence\n")
+  la $a0, promptFib                                            # log the address of is_legal
+  syscall
+  
+  loopFib:
+    
   
   b isExit
 

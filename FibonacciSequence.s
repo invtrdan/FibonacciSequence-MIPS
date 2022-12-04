@@ -27,7 +27,9 @@ isLegal:
   la $a0, promptFib                                            # log the address of is_legal
   syscall
   
-  loopFib:
+  li $10, 0                                                    # Load 0 into register 10
+  li $11, 1                                                    # Load 1 into register 11
+  loopFib:                                                     #Generate Fibonacci sequence
     
   
   b isExit

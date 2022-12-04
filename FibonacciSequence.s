@@ -1,4 +1,5 @@
 .data
+promptN: .asciiz "\nEnter an integer N, where N >= 25: "
 
 .text
 main:

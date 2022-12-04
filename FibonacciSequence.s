@@ -15,7 +15,7 @@ main:                                                          # Starting point
   syscall                                                      # Request system service
   move $8, $v0                                                 # Save the integer in $s0 (a temporary register)
   blt $8, 25, isIllegal                                        #If the number that the user enters is less than 25, branch to isIllegal
-  beq 
+  beq $8, 25, isLegal                                          #If the number that the user enters is 25, branch to isLegal
   
 isLegal:
   li $v0, 4                                                    #Print("The number is legal")

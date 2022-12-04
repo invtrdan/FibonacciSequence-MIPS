@@ -17,12 +17,7 @@ main:                                                          # Starting point
   li $9, 25                                                    # Initial value to be used for processing
   blt $8, 25, isIllegal                                        # If the number that the user enters is less than 25, branch to isIllegal
   bgt $8, 25, isLegal                                          # If the number that the user enters is greater than or equal to 25, branch to isLegal
-  
-  loopMain:                                                    #Main Loop
     
-  
-  
-  
 isLegal:
   li $v0, 4                                                    # Print("The number is legal")
   la $a0, is_illegal                                           # log the address of is_legal

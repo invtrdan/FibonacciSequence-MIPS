@@ -28,17 +28,15 @@ isLegal:
   syscall
   
   li $10, 1                                                    # Load 1 into register 10 (count)
-  li $11, 0                                                    # Load 0 into register 11
-  li $12, 1                                                    # Load 1 into register 12
+  li $11, 0                                                    # Load 0 into register 11 (num1)
+  li $12, 1                                                    # Load 1 into register 12 (num2)
+  li $v0, 1                                                    # Service 1 is print integer
   loopFib:                                                     # Generate Fibonacci sequence
     bgt $10, $8, isExit                                        # Exit if the value in $10 is greater than the value in $8
-    li $v0, 1                                                  # Service 1 is print integer
-    move $a0, $8                                               # Move the value from register 11 to register $a0
     syscall
+    addi $10, $10, 1                                           # Add 1 to the value in $10
+    b loopFib
     
-    
-  
-  b isExit
 
 isIllegal:
   li $v0, 4                                                    # Print("Illegal Number!")

@@ -3,6 +3,8 @@
 .data                                                          # Define the program data
 promptN: .asciiz "\nEnter an integer N, where N >= 25: "       # N Prompt
 promptFib: .asciiz "\nFibonacci Sequence"                      # Fibonacci Sequence Prompt
+is_legal .asciiz "\nThe number is legal"                       #Variable that signifies that the number is legal
+is_illegal .asciiz "\nThe number is illegal"                   #Variable that signifies that the number is illegal
 
 .text                                                          # Define the program instructions
 main:                                                          # Starting point 

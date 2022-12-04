@@ -25,6 +25,8 @@ isIllegal:
   la $a0, is_illegal                                           #log the address of is_illegal
   syscall
 
+fib:
+
 isExit:                                                        # Exit the program
   li $v0, 10                                                   
   syscall                                                      

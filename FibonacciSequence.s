@@ -15,9 +15,10 @@ main:                                                          # Starting point
   syscall                                                      # Request system service
   move $s0, $v0                                                # Save the integer in $s0 (a temporary register)
   
-  li $v0, 10                                                   # Exit the program
-  syscall                                                      # Request system service  
-  
 isLegal:
 
 isIllegal:
+
+isExit:                                                        # Exit the program
+  li $v0, 10                                                   
+  syscall                                                      

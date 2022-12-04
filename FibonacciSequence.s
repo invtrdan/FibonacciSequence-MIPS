@@ -16,6 +16,9 @@ main:                                                          # Starting point
   move $s0, $v0                                                # Save the integer in $s0 (a temporary register)
   
 isLegal:
+  li $v0, 4                                                    #Print("The number is legal")
+  la $a0, is_illegal                                           #log the address of is_legal
+  syscall
 
 isIllegal:
   li $v0, 4                                                    #Print("Illegal Number!")

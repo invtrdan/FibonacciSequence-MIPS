@@ -11,7 +11,9 @@ main:                                                          # Starting point
   syscall                                                      # Control is transferred from the user space to the kernel where the system call is handled
   li $v0, 5                                                    # Read the input integer, stores it at $v0
   syscall                                                      # Request system service
-  move $s0, $v0                                                #Save the integer in $s0
+  move $s0, $v0                                                # Save the integer in $s0
   
+  li $v0, 10                                                   # Exit the program
+  syscall                                                      # Request system service  
   
  

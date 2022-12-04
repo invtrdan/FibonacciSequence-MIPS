@@ -13,7 +13,9 @@ main:                                                          # Starting point
   syscall                                                      # Control is transferred from the user space to the kernel where the system call is handled
   li $v0, 5                                                    # Read the input integer, stores it at $v0
   syscall                                                      # Request system service
-  move $s0, $v0                                                # Save the integer in $s0 (a temporary register)
+  move $8, $v0                                                 # Save the integer in $s0 (a temporary register)
+  blt $8, 25, isIllegal                                        #If the number that the user enters is less than 25, branch to isIllegal
+  beq 
   
 isLegal:
   li $v0, 4                                                    #Print("The number is legal")

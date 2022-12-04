@@ -1,10 +1,10 @@
 #Author: Danielle McIntosh
 
 .data                                                          # Define the program data
-promptN: .asciiz "Enter an integer N, where N >= 25: "         # N Prompt
-promptFib: .asciiz "Fibonacci Sequence"                        # Fibonacci Sequence Prompt
-is_legal: .asciiz "The number is legal"                        #Variable that signifies that the number is legal
-is_illegal: .asciiz "Illegal Number!"                          #Variable that signifies that the number is illegal
+promptN: .asciiz "\nEnter an integer N, where N >= 25: "       # N Prompt
+promptFib: .asciiz "\nFibonacci Sequence"                      # Fibonacci Sequence Prompt
+is_legal: .asciiz "\nThe number is legal"                      # Variable that signifies that the number is legal
+is_illegal: .asciiz "\nIllegal Number!"                        # Variable that signifies that the number is illegal
 
 .text                                                          # Define the program instructions
 main:                                                          # Starting point 

@@ -33,47 +33,64 @@ isLegal:
   li $13, 0                                                    # Load 0 into register 13 (temp)
   
   ####################################################################################################################################################
-  #    $8 contains the user input (amount of fib sequence numbers to be printed)                                                                     #
-  #    $10 contains the counter, initial value: 1                                                                                                    #
-  #    $11 contains num1 (the number to be printed in each iteration), initial value: 0                                                              #
-  #    $12 contains num2 (the sum of the two previous numbers in the sequence), initial value: 1                                                     #
-  #    $13 temporarily contains the sum of num1 and num2 (temp)                                                                                      #
-  #                                                                                                                                                  #
-  #    Example:                                                                                                                                      #
-  #    N (user input) = 4.                                                                                                                           #
-  #    count = 0                                                                                                                                     #
-  #    num1 = 0                                                                                                                                      #
-  #    num2 = 1                                                                                                                                      #
-  #    temp = 0                                                                                                                                      #
-  #                                                                  N = 4 (just for loop algorithm testing purposes) 4 is ILLEGAL!                  #
-  #    LOOP                                                                                                                                          #
-  #    Exit if count = 5                                             Count  Num1  Num2  Temp  Output
+  #    $8 contains the user input (amount of fib sequence numbers to be printed)                                                                     
+  #    $10 contains the counter, initial value: 0                                                                                                    
+  #    $11 contains num1 (the number to be printed in each iteration), initial value: 0                                                              
+  #    $12 contains num2 (the sum of the two previous numbers in the sequence), initial value: 1                                                     
+  #    $13 temporarily contains the sum of num1 and num2 (temp)                                                                                      
+  #                                                                                                                                                  
+  #    Example:                                                                                                                                      
+  #    N (user input) = 6                                                                                                                            
+  #    count = 0                                                                                                                                     
+  #    num1 = 0                                                                                                                                      
+  #    num2 = 1                                                                                                                                      
+  #    temp = 0                                                                                                                                      
+  #                                                                  N = 4 (just for loop algorithm testing purposes) 6 is ILLEGAL!                  
+  #    LOOP                                                                                                                                          
+  #    Exit if count == 6                                            Count  Num1  Num2  Temp  Output
   #    print num1                                                      0      0     1     0    0
   #    temp = num1 + num2                                              0      0     1     1     
   #    num1 = num2                                                     0      1     1     1     
   #    num2 = temp                                                     0      1     1     1     
   #    increment count                                                 1      1     1     1     
   #
-  #    Exit if count = 5                                             Count  Num1  Num2  Temp  Output
+  #    Exit if count == 6                                            Count  Num1  Num2  Temp  Output
   #    print num1                                                      1      1     1     1    0 1
   #    temp = num1 + num2                                              1      1     1     2     
   #    num1 = num2                                                     1      1     1     2     
   #    num2 = temp                                                     1      1     2     2
   #    increment count                                                 2      1     2     2
   #    
-  #    Exit if count = 5                                             Count  Num1  Num2  Temp  Output
+  #    Exit if count == 6                                            Count  Num1  Num2  Temp  Output
   #    print num1                                                      2      1     2     2    0 1 1
   #    temp = num1 + num2                                              2      1     2     3     
   #    num1 = num2                                                     2      2     2     3  
   #    num2 = temp                                                     2      2     3     3
-  #    increment count                                                 3      2     3     4
+  #    increment count                                                 3      2     3     3
   #
-  #    Exit if count = 5                                             Count  Num1  Num2  Temp  Output
-  #    print num1                                                      3      2     3     4    0 1 1 2
+  #    Exit if count == 6                                            Count  Num1  Num2  Temp  Output
+  #    print num1                                                      3      2     3     3    0 1 1 2
   #    temp = num1 + num2                                              3      2     3     5 
-  #    num1 = num2                                                     3      3     3     4
-  #    num2 = temp                                                     3      3     4     4
-  #    increment count                                                 4      3     4     4
+  #    num1 = num2                                                     3      3     3     5
+  #    num2 = temp                                                     3      3     5     5
+  #    increment count                                                 4      3     5     5
+  #
+  #    Exit if count == 6                                            Count  Num1  Num2  Temp  Output
+  #    print num1                                                      4      3     5     5    0 1 1 2 3
+  #    temp = num1 + num2                                              4      3     5     8
+  #    num1 = num2                                                     4      5     5     8
+  #    num2 = temp                                                     4      5     8     8
+  #    increment count                                                 5      5     8     8
+  #
+  #    Exit if count == 6                                            Count  Num1  Num2  Temp  Output
+  #    print num1                                                      5      5     8     8    0 1 1 2 3 5
+  #    temp = num1 + num2                                              5      5     8    13
+  #    num1 = num2                                                     5      8     8    13 
+  #    num2 = temp                                                     5      8    13    13
+  #    increment count                                                 6      8    13    13
+  #
+  #    Exit if count == 6
+  #    EXIT!
   ####################################################################################################################################################
   
   loopFib:                                                     # Generate Fibonacci sequence

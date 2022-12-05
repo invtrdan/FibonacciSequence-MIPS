@@ -14,10 +14,10 @@ main:                                                          # Starting point
   syscall                                                      # Control is transferred from the user space to the kernel where the system call is handled
   li $v0, 5                                                    # Read the input integer, stores it at $v0
   syscall                                                      # Request system service
-  move $8, $v0                                                 # Save the integer in $8 (a temporary register)
+  move $t0, $v0                                                # Save the integer in $t0
   li $9, 25                                                    # Initial value to be used for processing
-  blt $8, 25, isIllegal                                        # If the number that the user enters is less than 25, branch to isIllegal
-  bgt $8, 25, isLegal                                          # If the number that the user enters is greater than or equal to 25, branch to isLegal
+  blt $t0, 25, isIllegal                                       # If the number that the user enters is less than 25, branch to isIllegal
+  bgt $t0, 25, isLegal                                         # If the number that the user enters is greater than or equal to 25, branch to isLegal
     
 isLegal:
   li $v0, 4                                                    # Print("The number is legal")
@@ -28,17 +28,17 @@ isLegal:
   la $a0, promptFib                                            # log the address of is_legal
   syscall
   
-  li $10, 0                                                    # Load 0 into register 10 (count)
-  li $11, 0                                                    # Load 0 into register 11 (num1)
-  li $12, 1                                                    # Load 1 into register 12 (num2)
-  li $13, 0                                                    # Load 0 into register 13 (temp)
+  li $t1, 0                                                    # Load 0 into register 10 (count)
+  li $t2, 0                                                    # Load 0 into register 11 (num1)
+  li $t3, 1                                                    # Load 1 into register 12 (num2)
+  li $t4, 0                                                    # Load 0 into register 13 (temp)
   
   ####################################################################################################################################################
-  #    $8   contains the user input (N)                                                                   
-  #    $10  contains the counter (initial value: 0)                                                                                                    
-  #    $11  contains num1 (the number printed on each iteration) (initial value: 0)                                                              
-  #    $12  contains num2 (the sum of the two previous numbers in the sequence) (initial value: 1)                                                  
-  #    $13  contains temp (the sum of num1 and num2)   
+  #    $t0  contains the user input (N)                                                                   
+  #    $t1  contains the counter (initial value: 0)                                                                                                    
+  #    $t2  contains num1 (the number printed on each iteration) (initial value: 0)                                                              
+  #    $t3  contains num2 (the sum of the two previous numbers in the sequence) (initial value: 1)                                                  
+  #    $t4  contains temp (the sum of num1 and num2)   
   #                                                                                                                                                  
   #    Example:                                                                                                                                      
   #    N (user input) = 6                                                                                                                            
@@ -94,19 +94,20 @@ isLegal:
   #    EXIT!
   ####################################################################################################################################################
   
-  #    $8    N                                                                  
-  #    $10   count                                                                                                   
-  #    $11   num1                                                             
-  #    $12   num2                                                     
-  #    $13   temp 
+  #    $t0   N                                                                  
+  #    $t1   count                                                                                                   
+  #    $t2   num1                                                             
+  #    $t3   num2                                                     
+  #    $t4   temp 
   
   loopFib:                                                     # Generate Fibonacci sequence                               
-    beq $10, $8, exit                                          # Exit if the value in $10 is equal to the value in $8      # Exit if count == N
-    li $v0, 1                                                  # Instruction to print an integer                           # print num1
-    move $a0, $11                                              # Print num1          
+    beq $t1, $t0, exit                                         # Exit if the value in $10 is equal to the value in $8      # Exit if count == N
+    
+    li $v0, 1                                                  # Instruction for printing an integer                       # print num1
+    move $a0, $t2                                              # Print num1          
     syscall
-    li $v0, 4                                                  # new line
-    la $a0, newline
+    li $v0, 4                                                  # Instruction for printing a string
+    la $a0, newline                                            # Print each number in a new line
     syscall
     
     

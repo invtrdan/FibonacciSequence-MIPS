@@ -2,9 +2,10 @@
 
 .data                                                          # Define the program data
 promptN: .asciiz "\nEnter an integer N, where N >= 25: "       # N Prompt
-promptFib: .asciiz "\n\nFibonacci Sequence\n"                    # Fibonacci Sequence Prompt
+promptFib: .asciiz "\n\nFibonacci Sequence\n"                  # Fibonacci Sequence Prompt
 is_legal: .asciiz "The number is legal"                        # Variable that signifies that the number is legal
 is_illegal: .asciiz "Illegal Number!"                          # Variable that signifies that the number is illegal
+newline: .asciiz "\n"                                          # new line
 
 .text                                                          # Define the program instructions
 main:                                                          # Starting point 
@@ -37,7 +38,7 @@ isLegal:
   #    $10  contains the counter (initial value: 0)                                                                                                    
   #    $11  contains num1 (the number printed on each iteration) (initial value: 0)                                                              
   #    $12  contains num2 (the sum of the two previous numbers in the sequence) (initial value: 1)                                                  
-  #    $13  contains temp (the sum of num1 and num2)                                                                                   
+  #    $13  contains temp (the sum of num1 and num2)   
   #                                                                                                                                                  
   #    Example:                                                                                                                                      
   #    N (user input) = 6                                                                                                                            
@@ -99,10 +100,14 @@ isLegal:
   #    $12   num2                                                     
   #    $13   temp 
   
-  loopFib:                                                     # Generate Fibonacci sequence                               # Exit 
-    beq $10, $8, exit                                          # Exit if the value in $10 is equal to the value in $8      # print num1
-    li $v0, 1                                                  # Instruction to print an integer
-    move $a0, $11                                              # Print num1                                               
+  loopFib:                                                     # Generate Fibonacci sequence                               
+    beq $10, $8, exit                                          # Exit if the value in $10 is equal to the value in $8      # Exit if count == N
+    li $v0, 1                                                  # Instruction to print an integer                           # print num1
+    move $a0, $11                                              # Print num1          
+    syscall
+    li $v0, 4                                                  # new line
+    la $a0, newline
+    syscall
                                              
     b loopFib
     

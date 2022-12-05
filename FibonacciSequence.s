@@ -99,9 +99,10 @@ isLegal:
   #    $12   num2                                                     
   #    $13   temp 
   
-  loopFib:                                                     # Generate Fibonacci sequence
-    beq $10, $8, exit                                          # Exit if the value in $10 is equal to the value in $8
-    
+  loopFib:                                                     # Generate Fibonacci sequence                               # Exit 
+    beq $10, $8, exit                                          # Exit if the value in $10 is equal to the value in $8      # print num1
+    li $v0, 1                                                  # Instruction to print an integer
+    move $a0, $11                                              # Print num1                                               
                                              
     b loopFib
     

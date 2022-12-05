@@ -108,7 +108,9 @@ isLegal:
     li $v0, 4                                                  # new line
     la $a0, newline
     syscall
-                                             
+    
+    
+    addi $10, $10, 1                                           # Increment Count                                           # Increment Count
     b loopFib
     
     

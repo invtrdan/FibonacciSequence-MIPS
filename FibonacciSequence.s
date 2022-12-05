@@ -110,10 +110,13 @@ isLegal:
     la $a0, newline                                            # Print each number in a new line
     syscall
     
-    
+    add $t4, $t2, $t3                                                                                                      # temp = num1 + num2
+    add $t2, $t3, $0                                           # num1 = num2 + 0                                           # num1 = num2
+    add $t3, $t4, $0                                           # num2 = temp + 0                                           # num2 = temp
     
     addi $t1, $t1, 1                                           # Increment Count                                           # Increment Count
     b loopFib
+    
     
     
 

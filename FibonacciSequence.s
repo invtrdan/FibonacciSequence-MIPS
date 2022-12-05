@@ -111,7 +111,7 @@ isLegal:
     syscall
     
     
-    addi $10, $10, 1                                           # Increment Count                                           # Increment Count
+    addi $t1, $t1, 1                                           # Increment Count                                           # Increment Count
     b loopFib
     
     
